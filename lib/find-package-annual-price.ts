@@ -4,7 +4,7 @@ export function findPackageAnnualPrice(
 ) {
   return (
     Number(
-      packageDom.querySelector(".price-big")?.textContent.replace(/£/g, "")
+      packageDom.querySelector(".price-big").textContent.replace(/£/g, "")
     ) * (isMonthly ? 12 : 1)
   );
 }

@@ -1,5 +1,6 @@
-import { main } from "../index";
+import { parseAndSortPackages } from "./parse-and-sort-packages";
 import { JSDOM } from "jsdom";
+
 const mockMainInnerHtml = `
 <div class="sections_wrapper">
 <div class="widget block block-static-block">
@@ -218,9 +219,9 @@ const mockMainInnerHtml = `
 
 jest.spyOn(JSDOM, "fromURL").mockResolvedValue(new JSDOM(mockMainInnerHtml));
 
-describe("main", () => {
+describe("parseAndSortPackages", () => {
   it("should return packages as a json array", async () => {
-    expect(await main()).toMatchObject([
+    expect(await parseAndSortPackages()).toEqual([
       {
         "option title": "Optimum: 2 GB Data - 12 Months",
         description:
